@@ -57,7 +57,3 @@
 			   }*/
 		  }
 ?>
-		</section>
-	</div>
-</body>
-</html>
