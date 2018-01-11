@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8" />
-	<link rel="stylesheet" href="./include/styles.css" />
-	<title>Mon site !</title>
-</head>
-<body>
-		<section id="content">
-
 <?php
 
 		session_start();
@@ -22,13 +12,8 @@
 		return $_SESSION['identifié'];
 	}else {
 		# code...
-
 			return 1 ;
 	}
 		//redirection page d'idenfication
 
 ?>
-		</section>
-	</div>
-</body>
-</html>
