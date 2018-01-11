@@ -15,9 +15,9 @@
 						echo "OK";
 						session_start();
 						$_SESSION['identifié'] = $email;
-					else
+
+				}					else
 						echo "Connection refused";
-				}
 				/*	if($req){
 		 echo"<p>";
 		 while ($a = pg_fetch_object($req)){//boucle sur tous les resultat obtenuent de la requete
