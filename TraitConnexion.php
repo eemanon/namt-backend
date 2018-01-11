@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8" />
-	<link rel="stylesheet" href="./include/styles.css" />
-	<title>Mon site !</title>
-</head>
-<body>
-		<section id="content">
 <?php
-
-header('Access-Control-Allow');
+			header('Access-Control-Allow-Origin: *');
 		   //if(isset($_POST['connexion']) ){ //Formulaie soumis
 			   if( isset($_GET['email']) and isset($_GET['password']) ){ //Champ identifiant et mot de passe remplis
 					 require_once('connect.inc.php');
@@ -25,8 +15,7 @@ header('Access-Control-Allow');
 						echo "OK";
 						session_start();
 						$_SESSION['identifié'] = $email;
-
-						}
+				}
 				/*	if($req){
 		 echo"<p>";
 		 while ($a = pg_fetch_object($req)){//boucle sur tous les resultat obtenuent de la requete
