@@ -9,7 +9,7 @@
 		<section id="content">
 <?php
 
-//header('Access-Control-Allow');
+header('Access-Control-Allow');
 		   //if(isset($_POST['connexion']) ){ //Formulaie soumis
 			   if( isset($_GET['email']) and isset($_GET['password']) ){ //Champ identifiant et mot de passe remplis
 					 require_once('connect.inc.php');
@@ -17,18 +17,15 @@
 					 $email = $_GET['email'];
  					$req =  pg_query($connection,"SELECT * FROM tomato.Utilisateur where email='$email' and pwd='$mdp'");
  						//Executon de la requete preparer
-						echo "email utilisateur : " .$email;
-						echo"</p>";
-						echo "Mot de passe " .$mdp;
-							echo"</p>";
+
 					$count = pg_num_rows($req);
-						echo" nombre de resultats requete : ";
 					echo $count;
 					if($count == 1){
 						//debut de la session
+						echo "OK";
 						session_start();
 						$_SESSION['identifié'] = $email;
-						
+
 						}
 				/*	if($req){
 		 echo"<p>";
