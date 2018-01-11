@@ -7,8 +7,7 @@
         <?php
             require('connection.php'); 
             $connection = pg_connect("dbname=".BASE." host=".SERVER." user=".LOGIN." password=".PASS); 
-			if(!$connection){echo"<h2>chiasse</h2>";}
-			echo "tamere";
+			if(!$connection){echo"Erreur de connexion à la base";}
 			$req = pg_query($connection,'SELECT * FROM tomato.Utilisateur'); 
             if($req){
 				echo"<p>";
@@ -18,7 +17,7 @@
 					}
                 echo"</p>";
             }
-			pgclose($connection);			
+			pg_close($connection);		
 
 
         ?>
