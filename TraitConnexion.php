@@ -9,12 +9,14 @@
  						//Executon de la requete preparer
 
 					$count = pg_num_rows($req);
-					echo $count;
+					//echo $count;
 					if($count == 1){
 						//debut de la session
 						echo "OK";
 						session_start();
 						$_SESSION['identifié'] = $email;
+					else
+						echo "Connection refused";
 				}
 				/*	if($req){
 		 echo"<p>";
