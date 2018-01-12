@@ -14,23 +14,29 @@
 		//verification de l'existance de la session
 		if( isset($_SESSION['identifié'])) {
 				 require_once('connect.inc.php');
-		//Destruction de la session
-		echo "OK";
 		$email =  $_SESSION['identifié'];
 		$req =  pg_query($connection,"SELECT * FROM tomato.Utilisateur where email='$email'");
 			//Executon de la requete preparer
+			$infos["info"] = array();
+
 		if($req){
 	echo"<p>";
 	while ($a = pg_fetch_object($req)){//boucle sur tous les resultat obtenuent de la requete
+		$info = array();
+     $info["nom"] = $a->nom;
+		 $info["prenom"] = $a->prenom;
+		  $info["pseudo"] = $a->pseudo;
+			 $info["email"] = $a->email;
 
-
-		 echo"$a->nom <br/>";
-		  echo"$a->prenom <br/>";
+		 array_push($infos["info"],$info);
+		 echo json_encode($infos);
 
 	}
-				echo"</p>";
+
 		}
-		}
+	}else{
+				echo "Erreur : Utilisateur non connecté";
+	}
 		//redirection page d'idenfication
 
 ?>

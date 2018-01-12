@@ -19,5 +19,5 @@
 				}					else
 						echo "Connection refused";
 				}
-		  }
+
 ?>
