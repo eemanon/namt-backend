@@ -15,7 +15,8 @@
 						echo "OK";
 						session_start();
 						$_SESSION['identifié'] = $email;
-					else
+
+				}					else
 						echo "Connection refused";
 				}
 		  }
