@@ -10,26 +10,26 @@
 			<?php
 							 header('Access-Control-Allow-Origin');
 					   //if(isset($_POST['connexion']) ){ //Formulaie soumis
-						   if( isset($_GET['email']) and isset($_GET['password'] and isset($_GET['nom'] and isset($_GET['prenom']) and isset($_GET['pseudo']){ //Champ identifiant et mot de passe remplis
+						   if( isset($_GET['email']) and isset($_GET['password']) and isset($_GET['nom']) and isset($_GET['prenom']) and isset($_GET['pseudo'])) { //Champ identifiant et mot de passe remplis
 								 require_once('connect.inc.php');
 								 $mdp = $_GET['password'];
 								 $email = $_GET['email'];
 								 $prenom = $_GET['prenom'];
 								$nom = $_GET['nom'];
 
-								if( isset($_GET['photo']){
+								if( isset($_GET['photo'])){
 										$photo = $_GET['photo'];
 								}else{
 										$photo = "";
 								}
 
-								if( isset($_GET['description']){
+								if( isset($_GET['description']) ){
 										$description = $_GET['description'];
 								}else{
 										$description = "";
 								}
 								$pseudo =  $_GET['pseudo'];
-			 					$req =  pg_query($connection,"INSERT  INTO tomato.Utilisateur (email, nom,prenom, pwd,photo) values ($email, $nom,$prenom, $pwd, $photo,$pseudo,$description)");
+			 					$req =  pg_query($connection,"INSERT  INTO tomato.Utilisateur (email, nom,prenom, pwd,photo,pseudo, description) VALUES ('$email', '$nom','$prenom', '$mdp', '$photo','$pseudo','$description')");
 			 						//Executon de la requete preparer
 								if($req){
 									//debut de la session
@@ -39,5 +39,5 @@
 			?>
 		</section>
 	</div>
-</body> 
+</body>
 </html>
