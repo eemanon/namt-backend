@@ -1,16 +1,18 @@
-<?php header('Access-Control-Allow-Origin: *');
+<?php 	
+		header('Access-Control-Allow-Origin: *');
+		header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 			require('connection.php'); 
             $connection = pg_connect("dbname=".BASE." host=".SERVER." user=".LOGIN." password=".PASS); 
 			if(!$connection){echo"pas de connection, passe en filaire mon grand";}
 			
 			if(isset($_GET['s'])){
 			$s=$_GET['s'];
-			$req = pg_query($connection,"SELECT *,ST_AsGeoJSON(geom) as geoJ FROM tomato.Jardin where code='$s' or ville='$s' or proprio='$s' or adresse='$s'"); 
+			$req = pg_query($connection,"SELECT tomato.Jardin,tomato.Jardin.adresse,tomato.Jardin.info,tomato.Jardin.description,tomato.Jardin.photo,tomato.Jardin.nom,tomato.Jardin.ville,tomato.Jardin.code,tomato.utilisateur.pseudo,tomato.utilisateur.photo,ST_AsGeoJSON(geom) as geoJ FROM tomato.Jardin where (code='$s' or ville='$s' or proprio='$s' or adresse='$s') and tomato.Jardin.proprio=tomato.utilisateur.email"); 
 			}
 			
 			else{
 			$pol="SELECT *,ST_AsGeoJSON(geom) as geoJ FROM  tomato.Jardin";
-			$req = pg_query($connection,$pol); 
+			$req = pg_query($connection,$pol);
 			}
 			
             if($req){
@@ -27,5 +29,5 @@
 				echo "<b>Message de mySQL: </b>".mysqli_error($connexion);
 				}			
 			pg_close($connection);
-
         ?>
+		
