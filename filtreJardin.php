@@ -1,4 +1,6 @@
-<?php header('Access-Control-Allow-Origin: *');
+<?php 	
+		header('Access-Control-Allow-Origin: *');
+		header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 			require('connection.php'); 
             $connection = pg_connect("dbname=".BASE." host=".SERVER." user=".LOGIN." password=".PASS); 
 			if(!$connection){echo"pas de connection, passe en filaire mon grand";}
@@ -10,7 +12,7 @@
 			
 			else{
 			$pol="SELECT *,ST_AsGeoJSON(geom) as geoJ FROM  tomato.Jardin";
-			$req = pg_query($connection,$pol); 
+			$req = pg_query($connection,$pol);
 			}
 			
             if($req){
