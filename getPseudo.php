@@ -6,7 +6,6 @@
 					 $email = $_GET['email'];
 	 					$req =  pg_query($connection,"SELECT pseudo FROM tomato.Utilisateur where email='$email'");
  						//Executon de la requete preparer
-
 				if($req){
 					while ($pseudo = pg_fetch_object($req)){//boucle sur tous les resultat obtenuent de la requete
 						 echo json_encode($pseudo);
