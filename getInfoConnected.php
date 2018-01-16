@@ -9,7 +9,7 @@
 		<section id="content">
 
 <?php
-
+		header('Access-Control-Allow-Origin: *');
 		session_start();
 		//verification de l'existance de la session
 		if( isset($_SESSION['identifié'])) {
