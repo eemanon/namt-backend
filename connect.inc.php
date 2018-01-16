@@ -5,6 +5,6 @@
 
 	if(!$connection){
 		//message d'erreur
-		echo "Erreur connexion à la base";
+		echo "Erreur de connexion à la base";
 	}
 ?>
