@@ -14,6 +14,13 @@
 						$jardines.push($nom);
 						echo json_encode($jardines);
 					}
+				}else{
+					$test["Reponse"] = "Verifier votre connexion en filaire";
+					echo json_encode ($test);
 				}
+			}else{
+				$test["Reponse"] = "Definir la variable email";
+				echo json_encode ($test);
 			}
+				pg_close($connection);
 ?>

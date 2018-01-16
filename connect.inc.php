@@ -4,7 +4,9 @@
 	$connection = pg_connect("dbname=".BASE." host=".SERVER."  user=".LOGIN." password=".PASS); ;
 
 	if(!$connection){
-		//message d'erreur
-		echo "Erreur de connexion à la base";
+
+			$test["Reponse"] = "Connexion impossible à la base : Verifier votre connexion en filaire";
+			echo json_encode ($test);
+
 	}
 ?>

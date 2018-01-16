@@ -29,14 +29,21 @@
 									array_push($messages["message"], $message);
 								}
 								echo json_encode($messages);
+							}else{
+								$test["Reponse"] = "Verifier votre connexion en filaire";
+								echo json_encode ($test);
 							}
 
 
 						}
 					}
 				}else{
-					$test["Reponse"] = "Veillez vous connecte";
+					$test["Reponse"] = "Verifier votre connexion en filaire";
 					echo json_encode ($test);
 				}
+}else{
+	$test["Reponse"] = "Veillez vous connecte";
+	echo json_encode ($test);
 }
+	pg_close($connection);
 ?>

@@ -12,6 +12,13 @@
 					while ($pseudo = pg_fetch_object($req)){//boucle sur tous les resultat obtenuent de la requete
 						echo json_encode($pseudo);
 					}
+				}else{
+					$test["Reponse"] = "Verifier votre connexion en filaire";
+					echo json_encode ($test);
 				}
+			}else{
+				$test["Reponse"] = "Definir la variable email";
+				echo json_encode ($test);
 			}
+				pg_close($connection);
 ?>

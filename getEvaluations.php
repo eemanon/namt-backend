@@ -29,6 +29,13 @@
 							$moyenne = $moyenne/$nb;
 							array_push($evaluations["evaluation"], $moyenne);
 							echo json_encode($evaluations);
+					}else{
+						$test["Reponse"] = "Verifier votre connexion en filaire";
+						echo json_encode ($test);
 					}
+			}else{
+				$test["Reponse"] = "Definir la variable email";
+				echo json_encode ($test);
 			}
+				pg_close($connection);
 ?>

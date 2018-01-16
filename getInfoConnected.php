@@ -23,11 +23,14 @@
 					array_push($infos["info"],$info);
 					echo json_encode($infos);
 				}
+			}else{
+				$test["Reponse"] = "Verifier votre connexion en filaire";
+				echo json_encode ($test);
 			}
 		}else{
 			$test["Reponse"] = "Veillez vous connecte";
 			echo json_encode ($test);
 		}
-		//redirection page d'idenfication
+			pg_close($connection);
 
 ?>
