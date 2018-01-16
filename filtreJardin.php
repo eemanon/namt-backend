@@ -7,7 +7,8 @@
 			
 			if(isset($_GET['s'])){
 			$s=$_GET['s'];
-			$req = pg_query($connection,"SELECT tomato.Jardin,tomato.Jardin.adresse,tomato.Jardin.info,tomato.Jardin.description,tomato.Jardin.photo,tomato.Jardin.nom,tomato.Jardin.ville,tomato.Jardin.code,tomato.utilisateur.pseudo,tomato.utilisateur.photo,ST_AsGeoJSON(geom) as geoJ FROM tomato.Jardin where (code='$s' or ville='$s' or proprio='$s' or adresse='$s') and tomato.Jardin.proprio=tomato.utilisateur.email"); 
+			echo $s;
+			$req = pg_query($connection,"SELECT tomato.Jardin.id,tomato.Jardin.adresse,tomato.Jardin.info,tomato.Jardin.description,tomato.Jardin.photo,tomato.Jardin.nom,tomato.Jardin.ville,tomato.Jardin.code,tomato.utilisateur.pseudo,tomato.utilisateur.photo,ST_AsGeoJSON(geom) as geoJ FROM tomato.Jardin,tomato.utilisateur where (code='$s' or ville='$s' or proprio='$s' or adresse='$s') and tomato.Jardin.proprio=tomato.utilisateur.email"); 
 			}
 			
 			else{
