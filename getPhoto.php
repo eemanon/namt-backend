@@ -21,5 +21,5 @@
 				$test["Reponse"] = "Definir la variable email";
 				echo json_encode ($test);
 			}
-				pg_close($connection);
+				
 ?>

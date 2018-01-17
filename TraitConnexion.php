@@ -26,5 +26,5 @@
 				$test["Reponse"] = "Definir la variable email et mot de passe";
 				echo json_encode ($test);
 			}
-				pg_close($connection);
+				
 ?>
