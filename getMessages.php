@@ -45,5 +45,5 @@
 	$test["Reponse"] = "Veillez vous connecte";
 	echo json_encode ($test);
 }
-	pg_close($connection);
+	
 ?>

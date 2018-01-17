@@ -36,5 +36,5 @@
 				$test["Reponse"] = "Definir les variables email, password, nom, prenom, pseudo";
 				echo json_encode ($test);
 			}
-				pg_close($connection);
+		
 ?>
