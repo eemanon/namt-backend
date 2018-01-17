@@ -19,8 +19,9 @@
 						$jardin["description"] = $jard->description;
 						// push single vehicule into final response array
 						array_push($jardins["jardin"], $jardin);
-						echo json_encode($jardins);
+						
 					}
+					echo json_encode($jardins);
 				}else{
 					$test["Reponse"] = "Verifier votre connexion en filaire";
 					echo json_encode ($test);
@@ -29,5 +30,4 @@
 				$test["Reponse"] = "Definir la variable email";
 				echo json_encode ($test);
 			}
-				pg_close($connection);
 ?>
