@@ -26,9 +26,10 @@
 									$message["commentaire"] = $msg->commentaire;
 									$message["demandeur"] = $msg->demandeur;
 									// push single vehicule into final response array
-									array_push($messages["message"], $message);
+
 								}
-								echo json_encode($messages);
+								array_push($messages["message"], $message);
+
 							}else{
 								$test["Reponse"] = "Verifier votre connexion en filaire";
 								echo json_encode ($test);
@@ -37,6 +38,7 @@
 
 						}
 					}
+					echo json_encode($messages);
 				}else{
 					$test["Reponse"] = "Verifier votre connexion en filaire";
 					echo json_encode ($test);
@@ -45,5 +47,4 @@
 	$test["Reponse"] = "Veillez vous connecte";
 	echo json_encode ($test);
 }
-	
 ?>
