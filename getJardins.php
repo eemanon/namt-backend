@@ -19,9 +19,15 @@
 			
 						// push single vehicule into final response array
 						array_push($jardins["jardin"], $jardin);
+<<<<<<< HEAD
 
 					}
 						echo json_encode($jardins);
+=======
+						
+					}
+					echo json_encode($jardins);
+>>>>>>> 5565d5f7946bb5bdb4aca925b0806fd9f7a7b436
 				}else{
 					$test["Reponse"] = "Verifier votre connexion en filaire";
 					echo json_encode ($test);
@@ -30,5 +36,8 @@
 				$test["Reponse"] = "Definir la variable email";
 				echo json_encode ($test);
 			}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5565d5f7946bb5bdb4aca925b0806fd9f7a7b436
 ?>
