@@ -11,9 +11,10 @@
 				if($req){
 					$jardines = array();
 					while ($nom = pg_fetch_object($req)){//boucle sur tous les resultat obtenuent de la requete
-						$jardines.push($nom);
-						echo json_encode($jardines);
+						array_push($jardines,$nom);
+
 					}
+						echo json_encode($jardines);
 				}else{
 					$test["Reponse"] = "Verifier votre connexion en filaire";
 					echo json_encode ($test);
@@ -22,5 +23,5 @@
 				$test["Reponse"] = "Definir la variable email";
 				echo json_encode ($test);
 			}
-				
+
 ?>
