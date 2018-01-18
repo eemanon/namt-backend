@@ -10,7 +10,7 @@
 				//Executon de la requete preparer
 
 				if($req){
-					$jardins["jardin"] = array();
+					$jardins = array();
 					while ($jard = pg_fetch_object($req)){//boucle sur tous les resultat obtenuent de la requete
 						$jardin = array();
 						$jardin["nom"] = $jard->nom;
@@ -18,7 +18,7 @@
 						$jardin["photo"] = $jard->photo;
 
 						// push single vehicule into final response array
-						array_push($jardins["jardin"], $jardin);
+						array_push($jardins, $jardin);
 
 
 					}
