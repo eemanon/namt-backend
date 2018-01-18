@@ -14,6 +14,7 @@
 					while ($jard = pg_fetch_object($req)){//boucle sur tous les resultat obtenuent de la requete
 						$jardin = array();
 						$jardin["nom"] = $jard->nom;
+						$jardin["proprio"] = $jard->proprio;
 						$jardin["info"] = $jard->info;
 						$jardin["photo"] = $jard->photo;
 
