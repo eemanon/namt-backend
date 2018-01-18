@@ -10,7 +10,7 @@
 				$req =  pg_query($connection,"SELECT * FROM tomato.Evenement where organisateur='$email'");
 				//Executon de la requete preparer
 				if($req){
-					$events["event"] = array();
+					$events = array();
 					while ($evt = pg_fetch_object($req)){//boucle sur tous les resultat obtenuent de la requete
 						$event = array();
 						$event["organisateur"] = $evt->organisateur;
@@ -18,7 +18,7 @@
 						$event["date"] = $evt->dateevent;
 						$event["adresse"] = $evt->adresse;
 						// push single vehicule into final response array
-						array_push($events["event"], $event);
+						array_push($events, $event);
 					}
 					echo json_encode($events);
 				}else{
