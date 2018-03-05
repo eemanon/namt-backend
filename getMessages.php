@@ -26,6 +26,7 @@
 									$message["commentaire"] = $msg->commentaire;
 									$message["demandeur"] = $msg->demandeur;
 									$message["sujet"] = $msg->sujet;
+									$message["date"] = $msg->date;
 									// push single vehicule into final response array
 								array_push($messages["message"], $message);
 								}
@@ -54,6 +55,7 @@
 									$message["commentaire"] = $msg->commentaire;
 									$message["demandeur"] = $msg->demandeur;
 									$message["sujet"] = $msg->sujet;
+									$message["date"] = $msg->date;
 									// push single vehicule into final response array
 								array_push($messages["message"], $message);
 								}
