@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<phpunit colors="true">
+    <testsuite name="Mes super tests">
+        <directory>./tests</directory>
+    </testsuite>
+    <filter>
+        <whitelist proceessUncoveredFromWhitelist="true">
+            <directory suffic=".php">src/</directory>
+        </whitelist>
+    </filter>
+    <php>
+        <var name="DB_DSN" value="mysql:dbname=myguestbook;host=localhost" />
+        <var name="DB_USER" value="user" />
+        <var name="DB_PASSWD" value="passwd" />
+        <var name="DB_DBNAME" value="myguestbook" />
+    </php>
+</phpunit>
