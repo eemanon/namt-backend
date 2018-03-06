@@ -3,8 +3,12 @@
 			header("Access-Control-Allow-Headers: X-Requested-With");
 			header('Access-Control-Allow-Credentials: true');
 			header('Access-Control-Allow-Origin: http://localhost:8081');
-			//if(isset($_POST['connexion']) ){ //Formulaie soumis
-			if(isset($_GET['email'])){ //Champ identifiant et mot de passe remplis
+Class Evaluations{
+	
+	
+	function getEvaluations(){
+		
+		if(isset($_GET['email'])){ //Champ identifiant et mot de passe remplis
 					require_once('connect.inc.php');
 					$email = $_GET['email'];
 					$req =  pg_query($connection,"SELECT * FROM tomato.Evaluation where evalue='$email'");
@@ -37,5 +41,11 @@
 				$test["Reponse"] = "Definir la variable email";
 				echo json_encode ($test);
 			}
+	}
+	}
+	
+$evals = new Evaluations;
+$events->getEvaluations();
+			
 
 ?>
