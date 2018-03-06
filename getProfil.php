@@ -20,8 +20,6 @@
 					$info["prenom"] = $a->prenom;
 					$info["pseudo"] = $a->pseudo;
 					$info["email"] = $a->email;
-					$info["photo"] = $a->photo;
-					$info["description"] = $a->description;
 					array_push($infos["info"],$info);
 					echo json_encode($infos);
 				}
