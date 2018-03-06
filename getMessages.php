@@ -46,7 +46,7 @@
 
 							$jardin = $a->id;
 
-							$req2 =  pg_query($connection,"SELECT * FROM tomato.\"demandeJardin\" where jardin='$jardin'");
+							$req2 =  pg_query($connection,"SELECT * FROM tomato.\"demandeJardin\" where jardin='$jardin' order by date desc");
 							//Executon de la requete preparer
 							if($req2){
 								$messages["message"] = array();
