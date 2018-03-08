@@ -17,7 +17,7 @@ class Messages{
 								if(isset($_GET['lu']) ){ //Champ identifiant et mot de passe remplis
 									$lu = $_GET['lu'];
 									$jardin = $a->id;
-									$req2 =  pg_query($connection,"SELECT * FROM tomato.\"demandeJardin\" where jardin='$jardin' and lu='$lu'");
+									$req2 =  pg_query($connection,"SELECT demandeur, commentaire, jardin, sujet, date, jardin.id, jardin.nom, jardin.icon FROM tomato.\"demandeJardin\", tomato.\"jardin\" where \"demandeJardin\".jardin=\"jardin\".id order by \"jardin\".id");
 									//Executon de la requete preparer
 									if($req2){
 										$messages["message"] = array();
@@ -27,6 +27,9 @@ class Messages{
 											$message["demandeur"] = $msg->demandeur;
 											$message["sujet"] = $msg->sujet;
 											$message["date"] = $msg->date;
+											$message["id_jardin"] = $msg->jardin;
+											$message["nom_jardin"] = $msg->nom;
+											$message["icon_jardin"] = $msg->icon;
 											// push single vehicule into final response array
 										array_push($messages["message"], $message);
 										}
@@ -39,7 +42,7 @@ class Messages{
 									}
 								}else{
 									$jardin = $a->id;
-									$req2 =  pg_query($connection,"SELECT * FROM tomato.\"demandeJardin\" where jardin='$jardin' order by date desc");
+									$req2 =  pg_query($connection,"SELECT demandeur, commentaire, jardin, sujet, date, jardin.id, jardin.nom, jardin.icon FROM tomato.\"demandeJardin\", tomato.\"jardin\" where \"demandeJardin\".jardin=\"jardin\".id order by \"jardin\".id");
 									//Executon de la requete preparer
 									if($req2){
 										$messages["message"] = array();
@@ -49,6 +52,9 @@ class Messages{
 											$message["demandeur"] = $msg->demandeur;
 											$message["sujet"] = $msg->sujet;
 											$message["date"] = $msg->date;
+											$message["id_jardin"] = $msg->jardin;
+											$message["nom_jardin"] = $msg->nom;
+											$message["icon_jardin"] = $msg->icon;
 											// push single vehicule into final response array
 										array_push($messages["message"], $message);
 										}
