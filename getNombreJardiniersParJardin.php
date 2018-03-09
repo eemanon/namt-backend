@@ -5,15 +5,21 @@
 	header('Access-Control-Allow-Origin: http://localhost:8081');
 	session_start();
 	if( isset($_SESSION['identifié'])) {
+		$email =  $_SESSION['identifié'];
 		require_once('connect.inc.php');
-		$req =  pg_query($connection,"SELECT jardin, count, jardin.nbmaxjardiniers FROM (SELECT count(jardine.jardin), jardine.jardin from tomato.\"jardine\" group by jardin) sousrequete, tomato.\"jardin\" where jardin.id = sousrequete.jardin");
+		$req =  pg_query($connection,"	
+										SELECT id, nbmaxjardiniers, count(jardin) FROM (
+											SELECT \"jardine\".jardin, \"jardin\".id, \"jardin\".nbmaxjardiniers FROM tomato.\"jardin\" 
+												LEFT JOIN tomato.\"jardine\"
+												ON tomato.\"jardine\".jardin=tomato.\"jardin\".id WHERE \"jardin\".proprio='$email') touslesjardins group by jardin, nbmaxjardiniers, id
+		");
 		//Executon de la requete preparer
 
 		if($req){
-			$jardiniers["message"] = array();
+			$jardiniers = array();
 			while ($row = pg_fetch_object($req)){
 				$message = array();
-				$message["id"] = $row->jardin;
+				$message["id"] = $row->id;
 				$message["nbre"] = $row->count;						
 				$message["nbrmax"] = $row->nbmaxjardiniers;
 									// push single vehicule into final response array
