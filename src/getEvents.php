@@ -5,9 +5,7 @@ header('Access-Control-Allow-Credentials: true');
 header('Access-Control-Allow-Origin: http://localhost:8081');
 session_start();
 class Events{
-
-	 function getEvents(){
-
+	function getEvents(){
 		if(isset($_SESSION['identifié'])){ //Champ identifiant et mot de passe remplis
 			require_once('connect.inc.php');
 			$email = $_SESSION['identifié'];
@@ -40,5 +38,4 @@ class Events{
 
 $events = new Events;
 $events->getEvents();
-
 ?>

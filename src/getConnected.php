@@ -12,5 +12,6 @@ if( isset($_SESSION['identifié'])) {
 	# code...
 	return 1 ;
 }
+//redirection page d'idenfication
 
 ?>

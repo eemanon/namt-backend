@@ -2,6 +2,7 @@
 use PHPUnit\Framework\TestCase;
 use PHPUnit\DbUnit\TestCaseTrait;
 require "./src/getEvents.php";
+
 class MesTest extends TestCase{
 
 	 function testGetEvents(){
@@ -11,7 +12,6 @@ class MesTest extends TestCase{
 		 $events = new Events;
 		$json =  $events->getEvents();
 	}
-
 
 }
 

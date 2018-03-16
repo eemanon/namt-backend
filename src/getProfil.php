@@ -1,11 +1,15 @@
 <?php
 
-		header('Access-Control-Allow-Methods: GET, POST');
-		header("Access-Control-Allow-Headers: X-Requested-With");
-		header('Access-Control-Allow-Credentials: true');
-		header('Access-Control-Allow-Origin: http://localhost:8081');
-		session_start();
-		//verification de l'existance de la session
+header('Access-Control-Allow-Methods: GET, POST');
+header("Access-Control-Allow-Headers: X-Requested-With");
+header('Access-Control-Allow-Credentials: true');
+header('Access-Control-Allow-Origin: http://localhost:8081');
+session_start();
+//verification de l'existance de la session
+
+class Profil {
+	function getProfil() {
+
 		if( isset($_SESSION['identifié'])) {
 			require_once('connect.inc.php');
 			$email =  $_SESSION['identifié'];
@@ -20,8 +24,6 @@
 					$info["prenom"] = $a->prenom;
 					$info["pseudo"] = $a->pseudo;
 					$info["email"] = $a->email;
-					$info["photo"] = $a->photo;
-					$info["description"] = $a->description;
 					array_push($infos["info"],$info);
 					echo json_encode($infos);
 				}
@@ -33,6 +35,12 @@
 			$test["Reponse"] = "Veillez vous connecte";
 			echo json_encode ($test);
 		}
+
+	}
+}
+
+$profil= new Profil;
+$profil->getProfil();
 
 
 ?>
