@@ -3,6 +3,12 @@
 			header("Access-Control-Allow-Headers: X-Requested-With");
 			header('Access-Control-Allow-Credentials: true');
 			header('Access-Control-Allow-Origin: http://localhost:8081');
+			
+class Jardins{ 
+
+
+	function getJardins(){
+		
 			if(isset($_GET['email'])){ //Champ identifiant et mot de passe remplis
 				require_once('connect.inc.php');
 				$email = $_GET['email'];
@@ -35,4 +41,11 @@
 				$test["Reponse"] = "Definir la variable email";
 				echo json_encode ($test);
 			}
+		
+	} 
+
+}
+
+$jardins = new Jardins;
+$jardins->getJardins();
 ?>
